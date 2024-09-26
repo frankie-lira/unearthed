@@ -1,10 +1,15 @@
 import express from 'express';
+import giftsRoute from './routes/gifts.js';
+
 
 const app = express()
 
 // Serve static files from public directories
 app.use('/public', express.static('../client/public'))
 app.use('/scripts', express.static('../client/public/scripts'))
+
+// Use the gifts route
+app.use('/api', giftsRoute);
 
 // Define a simple route for the root URL
 app.get('/', (req, res) => {
